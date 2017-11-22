@@ -12,9 +12,13 @@ public class Client {
 	public static void main(String[] args) {
 		// Object construction
 		Employee eRef = new Employee();
+		Address a = new Address();
+		a.setCity("Bikini Bottom");
+		a.setState("Bikini Islands");
+		a.setZipCode(990001);
 		eRef.setEid(101);
 		eRef.setEname("Sponge Bob Square Pants");
-		eRef.setEaddress("Bikini Bottom");
+		eRef.setAddress(a);
 		System.out.println("Employee details: "+eRef);
 		
 		//Spring Way | IoC Inversion of Control
@@ -22,6 +26,13 @@ public class Client {
 		//BeanFactory factory = new XmlBeanFactory(resource); //Spring container which parse XML file to construct objects
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("employeebean.xml");
+		System.out.println("-- Context opened --");
+		
+		
+		ClassPathXmlApplicationContext cxt = (ClassPathXmlApplicationContext) context;
+		cxt.close();
+		
+		System.out.println("-- Context closed --");
 		
 		/*Employee e1 = (Employee) factory.getBean("emp1");
 		Employee e2 = (Employee) factory.getBean("emp2");

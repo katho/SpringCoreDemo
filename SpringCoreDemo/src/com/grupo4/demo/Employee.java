@@ -7,7 +7,8 @@ public class Employee {
 	//Attributes
 	int eid;
 	String ename;
-	String eaddress;
+	//String eaddress;
+	Address address;
 	
 	//Methods
 	public Employee()
@@ -15,11 +16,25 @@ public class Employee {
 		System.out.println("-- Employee Object Constructed --");
 	}
 
-	public Employee(int eid, String ename, String eaddress) {
+	public Employee(int eid, String ename) {
 	
 		this.eid = eid;
 		this.ename = ename;
-		this.eaddress = eaddress;
+		
+	}
+	
+	public Employee(Address address)
+	{
+		this.address = address;
+	}
+
+	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address adddress) {
+		this.address = adddress;
 	}
 
 	public int getEid() {
@@ -38,17 +53,18 @@ public class Employee {
 		this.ename = ename;
 	}
 
+	/*
 	public String getEaddress() {
 		return eaddress;
 	}
 
 	public void setEaddress(String eaddress) {
 		this.eaddress = eaddress;
-	}
+	}*/
 
 	@Override
 	public String toString() {
-		return "Employee [eid=" + eid + ", ename=" + ename + ", eaddress=" + eaddress + "]";
+		return "Employee [eid=" + eid + ", ename=" + ename + ", eaddress=" + address + "]";
 	}
 	
 	

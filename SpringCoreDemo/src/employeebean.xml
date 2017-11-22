@@ -15,22 +15,32 @@
 	</bean>
 	 -->
 	
+	<bean id="addrs" class="com.grupo4.demo.Address">
+		<property name="city" value="Any City" />
+		<property name="state" value="One State" />
+		<property name="zipCode" value="888088" />
+	</bean>
 	<!-- init-method="myInit" destroy-method="myDestroy"-->
-	<bean id="emp1" class="com.grupo4.demo.Employee"  >
+	<bean id="emp1" class="com.grupo4.demo.Employee" init-method="myInit" destroy-method="myDestroy" >
 		<property name="eid" value="102" />
 		<property name="ename" value="Squidward" />
-		<property name="eaddress" value="Next to Sponge" />
+		<!-- Set property address -->
+		<property name="address" ref="addrs" />
 	</bean>
+	
+	
 	
 	<bean id="emp2" class="com.grupo4.demo.Employee">
 		<property name="eid" value="103" />
 		<property name="ename" value="Mr. Crabs" />
-		<property name="eaddress" value="Fancy Neighborhood at Bikini Bottom" />
+		<!-- Set property address -->
+		<property name="address" ref="addrs" />
 	</bean>
 	
 	<bean id="emp3" class="com.grupo4.demo.Employee">
 		<property name="eid" value="104" />
 		<property name="ename" value="Patrick Star" />
-		<property name="eaddress" value="Under a Rock" />
+		<!-- Set property address -->
+		<property name="address" ref="addrs" />
 	</bean>
 </beans>
